@@ -1,0 +1,21 @@
+SetResolution(20, 20, 30, true)
+
+BeginDraw(line)
+Vertex(2, 2, 1, 0, 0)
+Vertex(17, 17, 0, 1, 0)
+EndDraw()
+
+BeginDraw(line)
+Vertex(17, 2, 0, 0, 1)
+Vertex(2, 17, 1, 1, 0)
+EndDraw()
+
+BeginDraw(line)
+Vertex(2, 10, 1, 0, 1)
+Vertex(17, 10, 0, 1, 1)
+EndDraw()
+
+BeginDraw(line)
+Vertex(10, 2, 0.5, 0.5, 1)
+Vertex(10, 17, 1, 0.5, 0.5)
+EndDraw()
