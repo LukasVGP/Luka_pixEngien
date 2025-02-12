@@ -14,6 +14,9 @@
 #include "CmdShowViewport.h"
 #include "CmdSetClipping.h"
 
+#include "CmdMatrix.h"
+#include "CmdCamera.h"
+
 CommandDictionary* CommandDictionary::Get()
 {
 	static CommandDictionary sInstance;
@@ -24,26 +27,41 @@ CommandDictionary::CommandDictionary()
 {
 	// Initialize dictionary
 
-	// Setting commands
+	// Setting Commands
 	RegisterCommand<CmdSetResolution>();
 
-	// Variable commands
+	// Variable Commands
 	RegisterCommand<CmdVarFloat>();
 
-	// Rasterization commands
+	// Rasterization Commands
 	RegisterCommand<CmdDrawPixel>();
 	RegisterCommand<CmdSetColor>();
 	RegisterCommand<CmdSetFillMode>();
 
-	// Primatives commands
+	// Primatives Commands
 	RegisterCommand<CmdBeginDraw>();
 	RegisterCommand<CmdEndDraw>();
 	RegisterCommand<CmdAddVertex>();
 
-	// Viewport commands
+	// Viewport Commands
 	RegisterCommand<CmdSetViewport>();
 	RegisterCommand<CmdShowViewport>();
 	RegisterCommand<CmdSetClipping>();
+
+	// Matrix Commands
+	RegisterCommand<CmdPushTranslation>();
+	RegisterCommand<CmdPushRotationX>();
+	RegisterCommand<CmdPushRotationY>();
+	RegisterCommand<CmdPushRotationZ>();
+	RegisterCommand<CmdPushScaling>();
+	RegisterCommand<CmdPopMatrix>();
+
+	// Camera Commands
+	RegisterCommand<CmdSetCameraPosition>();
+	RegisterCommand<CmdSetCameraDirection>();
+	RegisterCommand<CmdSetCameraNear>();
+	RegisterCommand<CmdSetCameraFar>();
+	RegisterCommand<CmdSetCameraFov>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()
