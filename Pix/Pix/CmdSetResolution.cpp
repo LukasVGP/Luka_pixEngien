@@ -1,4 +1,6 @@
 #include "CmdSetResolution.h"
+#include "DepthBuffer.h"
+#include "PostProcessing.h"
 
 #include <XEngine.h>
 
@@ -25,6 +27,9 @@ bool CmdSetResolution::Execute(const std::vector<std::string>& params)
 	gResolutionY = (float)height;
 
 	X::InitRenderTexture(width, height, pixelSize);
+
+	DepthBuffer::Get()->Initialize(width, height);
+	PostProcessing::Get()->Initialize(width, height, {0.1f, 0.1f, 0.1f, 1.0f});
 
 	if (showGrid && pixelSize > 1)
 		X::DrawScreenGrid(pixelSize, X::Colors::DarkGray);

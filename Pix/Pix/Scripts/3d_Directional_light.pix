@@ -1,0 +1,120 @@
+SetResolution(550, 550, 1)
+
+SetViewport(60, 60, 420, 420)
+
+SetClipping(true)
+
+SetCullMode(back)
+
+ShowViewport(true)
+
+EnableDepth(true)
+
+float $camX = 0.2, 0.01
+float $camY = 0.3, 0.01
+float $camZ = -5.5, 0.01
+
+float $camDirX = 0.1, 0.01
+float $camDirY = -0.1, 0.01
+float $camDirZ = 1.1, 0.01
+
+float $lightDirX = 0.8, 0.01, -1, 1
+float $lightDirY = -0.9, 0.01, -1, 1
+float $lightDirZ = 1.2, 0.01, -1, 1
+
+float $rotX = 5, 0.1
+float $rotYA = 25, 0.1
+float $rotYB = -25, 0.1
+
+float $emissiveR = 0.05, 0.1, 0.0, 0.1
+float $emissiveG = 0.05, 0.1, 0.0, 0.1
+float $emissiveB = 0.05, 0.1, 0.0, 0.1
+
+SetMaterialEmissive($emissiveR, $emissiveG, $emissiveB)
+
+SetCameraPosition($camX, $camY, $camZ)
+SetCameraDirection($camDirX, $camDirY, $camDirZ)
+
+SetLightAmbient(0.25, 0.25, 0.25)
+SetLightDiffuse(0.75, 0.75, 0.75)
+SetLightSpecular(0.35, 0.35, 0.35)
+AddDirectionalLight($lightDirX, $lightDirY, $lightDirZ)
+
+PushTranslation(-2.2, 1.3, 0)
+PushRotationY($rotYA)
+PushRotationX($rotX)
+
+BeginDraw(triangle, true)
+Vertex(-1, -1, 0, 0.6, 0, 0)
+Vertex(0, 1.1, 0, 0.6, 0, 0)
+Vertex(1, -1, 0, 0.6, 0, 0)
+EndDraw()
+
+PopMatrix()
+PopMatrix()
+PopMatrix()
+PushTranslation(0, 1.3, 0)
+PushRotationY($rotYA)
+PushRotationX($rotX)
+
+BeginDraw(triangle, true)
+Vertex(-1, -1, 0, 0, 0.6, 0)
+Vertex(0, 1.1, 0, 0, 0.6, 0)
+Vertex(1, -1, 0, 0, 0.6, 0)
+EndDraw()
+
+PopMatrix()
+PopMatrix()
+PopMatrix()
+PushTranslation(2.2, 1.3, 0)
+PushRotationY($rotYA)
+PushRotationX($rotX)
+
+BeginDraw(triangle, true)
+Vertex(-1, -1, 0, 0, 0, 0.6)
+Vertex(0, 1.1, 0, 0, 0, 0.6)
+Vertex(1, -1, 0, 0, 0, 0.6)
+EndDraw()
+
+PopMatrix()
+PopMatrix()
+PopMatrix()
+PushTranslation(-2.2, -1.3, 0)
+PushRotationY($rotYB)
+PushRotationX($rotX)
+
+BeginDraw(triangle, true)
+Vertex(-1.1, -1.1, 0, 0.6, 0, 0)
+Vertex(0, 1, 0, 0.6, 0, 0)
+Vertex(1.1, -1.1, 0, 0.6, 0, 0)
+EndDraw()
+
+PopMatrix()
+PopMatrix()
+PopMatrix()
+PushTranslation(0, -1.3, 0)
+PushRotationY($rotYB)
+PushRotationX($rotX)
+
+BeginDraw(triangle, true)
+Vertex(-1.1, -1.1, 0, 0, 0.6, 0)
+Vertex(0, 1, 0, 0, 0.6, 0)
+Vertex(1.1, -1.1, 0, 0, 0.6, 0)
+EndDraw()
+
+PopMatrix()
+PopMatrix()
+PopMatrix()
+PushTranslation(2.2, -1.3, 0)
+PushRotationY($rotYB)
+PushRotationX($rotX)
+
+BeginDraw(triangle, true)
+Vertex(-1.1, -1.1, 0, 0, 0, 0.6)
+Vertex(0, 1, 0, 0, 0, 0.6)
+Vertex(1.1, -1.1, 0, 0, 0, 0.6)
+EndDraw()
+
+PopMatrix()
+PopMatrix()
+PopMatrix()

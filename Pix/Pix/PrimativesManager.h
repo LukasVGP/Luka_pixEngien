@@ -9,11 +9,23 @@ enum class Topology // 'class' -> Topology::Line
 	Triangle
 };
 
+enum class CullMode
+{
+	None,  // No Face Culling
+	Front, // Cull items facing towards the camera
+	Back   // Cull items facing away from the camera
+};
+
 class PrimativesManager
 {
 public:
 
 	static PrimativesManager* Get(); // Singleton
+
+	void OnNewFrame();
+	void SetCullMode(CullMode mode);
+
+	void SetCorrectUV(bool correctUV);
 
 	bool BeginDraw(Topology topology, bool applyTransform = false);
 
@@ -28,6 +40,10 @@ private:
 	std::vector<Vertex> mVertexBuffer;
 
 	Topology mTopology = Topology::Point;
+
+	CullMode mCullMode = CullMode::Back;
+
 	bool mDrawBegin = false; 
 	bool mApplyTransform = false;
+	bool mCorrectUV = false;
 };
